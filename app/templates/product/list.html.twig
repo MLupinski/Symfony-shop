@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product List{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('styles/product/list.css') }}">
+{% endblock %}
+{% block body %}
+
+{% include ('product/list/new.html.twig') %}
+
+{% include ('product/list/bestseller.html.twig') %}
+
+{% endblock %}

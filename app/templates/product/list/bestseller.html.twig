@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="products-container">
+        <div class="section-title">
+            <h2>Bestsellery</h2>
+        </div>
+        <div class="products-grid">
+            <ol class="products product-items">
+                {% for product in products %}
+                    <li class="product-item">
+                        <div class="product-item-info">
+                            <div class="product-item-image">
+                                <div class="product-item-image-container">
+                                    <img loading="lazy" class="product-item-photo" src="{{ product.image }}" alt=""/>
+                                </div>
+                            </div>
+                            <div class="product-item-details">
+                                <div class="product-item-name">
+                                    <a title="{{ product.name }}" href="#" class="product-item-link"><h2>{{ product.name }}</h2></a>
+                                </div>
+                            </div>
+                            <div class="price-box final-price">
+                                <span>{{ product.basePrice }}</span>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+</div>

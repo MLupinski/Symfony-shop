@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ product.name }} {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('styles/product/show.css') }}">
+{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        {% for label, messages in app.flashes %}
+            <div class="alert alert-{{ label }}">
+                {% for message in messages %}
+                    <span>{{ message }}</span>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        {% include ('product/breadcrumbs.html.twig') %}
+        <div class="product-info-wrap">
+            <div class="product-media">
+                <div class="product-media-photo">
+                    <img src="{{ product.image }}" alt="{{ product.name }}"/>
+                </div>
+            </div>
+            <div class="product-info-main">
+                <div class="product-info-name">
+                    <h1>{{ product.name }}</h1>
+                </div>
+                <div class="product-info-price">
+                    <span>{{ product.basePrice }}</span>
+                </div>
+                <div class="product-info-stock-status">
+                    <span>Available</span>
+                </div>
+                <div class="product-add-to-cart-form">
+                    <div class="add-to-cart-box">
+                        <div class="action">
+                            {{ form_start(addToCartForm) }}
+                            {{ form_row(addToCartForm.quantity) }}
+                            <input type="hidden" name="productId" value="{{ product.id }}"/>
+                            <button type="submit" class="btn btn-primary addtocart-button"
+                                    id="product-addtocart-button">
+                                <span>Add To Cart</span>
+                            </button>
+                            {{ form_end(addToCartForm) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

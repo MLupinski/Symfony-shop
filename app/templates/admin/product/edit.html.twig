@@ -1,0 +1,11 @@
+{% extends 'admin/admin.base.html.twig' %}
+
+{% block body %}
+    <h1>Edit product</h1>
+    <div class="container-fluid">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+            <button class="btn btn-primary">Save</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
